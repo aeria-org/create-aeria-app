@@ -1,0 +1,6 @@
+[submodule "packages/create-aeria-app/templates/app-ts"]
+	path = packages/create-aeria-app/templates/app-ts
+	url = git@github.com:aeria-org/quickstart.git
+[submodule "templates/app-ts"]
+	path = templates/app-ts
+	url = git@github.com:aeria-org/quickstart.git
