@@ -16,6 +16,9 @@ devDependencies:
   '@commitlint/config-conventional':
     specifier: ^17.7.0
     version: 17.8.1
+  '@types/semver':
+    specifier: ^7.5.8
+    version: 7.5.8
   eslint:
     specifier: ^8.57.0
     version: 8.57.0
