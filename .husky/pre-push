@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-pnpm lint
+if ! test $GITHUB_ACTIONS; then
+  pnpm -r lint
+fi
 
