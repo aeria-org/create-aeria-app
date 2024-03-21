@@ -2,6 +2,6 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 if ! test $GITHUB_ACTIONS; then
-  pnpm -r lint
+  pnpm lint
 fi
 

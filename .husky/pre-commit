@@ -3,9 +3,7 @@
 
 if ! test $GITHUB_ACTIONS; then
   pnpm i
-  for ws in $(git diff --name-only --cached | grep -oE 'packages/([^/]+)' | uniq); do
-    pnpm --filter="./${ws}" lint:fix
-  done
+  pnpm lint:fix
 else
   pnpm i --no-frozen-lockfile
 fi
