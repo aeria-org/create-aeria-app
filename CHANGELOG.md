@@ -1,5 +1,11 @@
 # create-aeria-app
 
+## 0.0.43
+
+### Patch Changes
+
+- 3790f67: Add create-aeria-app.lock feature
+
 ## 0.0.42
 
 ### Patch Changes
