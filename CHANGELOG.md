@@ -1,5 +1,11 @@
 # create-aeria-app
 
+## 0.0.49
+
+### Patch Changes
+
+- c24eedd: Update templates
+
 ## 0.0.48
 
 ### Patch Changes
