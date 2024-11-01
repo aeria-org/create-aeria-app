@@ -1,5 +1,11 @@
 # create-aeria-app
 
+## 0.0.53
+
+### Patch Changes
+
+- 4e7c422: Update error message
+
 ## 0.0.52
 
 ### Patch Changes
