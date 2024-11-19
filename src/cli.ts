@@ -148,7 +148,7 @@ const main = async () => {
     path.join(projectPath, '.gitignore'),
   )
 
-  await fs.promises.rename(
+  await fs.promises.copyFile(
     path.join(projectPath, 'api', 'sample.env'),
     path.join(projectPath, 'api', '.env'),
   )
