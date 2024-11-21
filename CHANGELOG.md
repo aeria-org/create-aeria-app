@@ -1,5 +1,12 @@
 # create-aeria-app
 
+## 0.0.54
+
+### Patch Changes
+
+- 001b055: Update templates
+- 59646d7: Copy sample.env instead of rename
+
 ## 0.0.53
 
 ### Patch Changes
