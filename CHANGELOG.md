@@ -1,5 +1,11 @@
 # create-aeria-app
 
+## 0.0.56
+
+### Patch Changes
+
+- 0ef2a01: Fix cli script
+
 ## 0.0.55
 
 ### Patch Changes
