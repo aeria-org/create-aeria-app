@@ -23,6 +23,8 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm i
+      - name: Build package
+        run: pnpm build
       - name: Create release PR
         uses: changesets/action@v1
         with:
