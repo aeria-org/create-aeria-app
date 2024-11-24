@@ -1,5 +1,11 @@
 # create-aeria-app
 
+## 0.0.55
+
+### Patch Changes
+
+- 91e2bb2: Use git to fetch templates
+
 ## 0.0.54
 
 ### Patch Changes
