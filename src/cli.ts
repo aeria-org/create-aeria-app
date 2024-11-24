@@ -13,7 +13,7 @@ import {
   LogLevel,
   log,
 } from './util.js'
-
+import { TEMPLATES } from './templates.js'
 import { printBanner } from './banner.js'
 
 const {
@@ -111,6 +111,11 @@ const main = async () => {
     return
   }
 
+  if( !(template in TEMPLATES) ) {
+    log(LogLevel.Error, `invalid template, available ones are: ${Object.keys(TEMPLATES)}`)
+    return
+  }
+
   const projectName = positionals[0]
     ? positionals[0]
     : await question('what\'s the project name? ')
@@ -123,25 +128,15 @@ const main = async () => {
   const cwd = process.cwd()
   const projectPath = path.join(cwd, projectName)
 
-  const templatePath = path.join(
-    __dirname,
-    '..',
-    'templates',
-    template,
-  )
-
   if( fs.existsSync(projectPath) ) {
     log(LogLevel.Error, `path '${projectPath}' already exists`)
     return
   }
 
-  await fs.promises.cp(
-    templatePath,
-    projectPath,
-    {
-      recursive: true,
-    },
-  )
+  await $(`git clone --depth=1 --branch=master ${TEMPLATES[template]} ${projectPath}`)
+  await fs.promises.rm(path.join(projectPath, '.git'), {
+    recursive: true,
+  })
 
   await fs.promises.rename(
     path.join(projectPath, 'sample.gitignore'),

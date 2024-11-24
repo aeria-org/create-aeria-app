@@ -7,10 +7,9 @@
   "scripts": {
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "build": "tsc && rm -rf templates/*/node_modules",
+    "build": "tsc",
     "prepare": "husky",
-    "prepublishOnly": "pnpm lint && pnpm build",
-    "update-templates": "git submodule update --remote && git add . && git commit -m 'chore: update templates'"
+    "prepublishOnly": "pnpm lint && pnpm build"
   },
   "keywords": [],
   "author": "",
@@ -22,8 +21,7 @@
   },
   "files": [
     "bin",
-    "dist",
-    "templates"
+    "dist"
   ],
   "dependencies": {
     "semver": "^7.5.4"
