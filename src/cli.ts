@@ -26,10 +26,6 @@ const {
       type: 'boolean',
       short: 'b',
     },
-    stable: {
-      type: 'boolean',
-      short: 's',
-    },
     force: {
       type: 'boolean',
       short: 'f',
@@ -139,14 +135,9 @@ const main = async () => {
   })
 
   await fs.promises.copyFile(
-    path.join(projectPath, 'api', 'sample.env'),
+    path.join(projectPath, 'api', '.env.sample'),
     path.join(projectPath, 'api', '.env'),
   )
-
-  if( !opts.stable ) {
-    log(LogLevel.Info, 'removing create-aeria-app.lock')
-    await fs.promises.unlink(path.join(projectPath, 'create-aeria-app.lock'))
-  }
 
   if( !opts.bare ) {
     log(LogLevel.Info, 'installing dependencies')
