@@ -1,5 +1,11 @@
 # create-aeria-app
 
+## 0.0.58
+
+### Patch Changes
+
+- 76e4fd7: Adjust to new boilerplate
+
 ## 0.0.57
 
 ### Patch Changes
