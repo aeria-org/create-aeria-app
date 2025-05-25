@@ -122,7 +122,7 @@ const main = async () => {
   }
 
   const cwd = process.cwd()
-  const projectPath = path.join(cwd, projectName)
+  const projectPath = path.join(cwd, projectName).split(path.sep).join('/')
 
   if( fs.existsSync(projectPath) ) {
     log(LogLevel.Error, `path '${projectPath}' already exists`)
