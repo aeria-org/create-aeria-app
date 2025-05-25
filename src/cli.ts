@@ -132,6 +132,7 @@ const main = async () => {
   await $(`git clone --depth=1 --branch=master ${TEMPLATES[template]} ${projectPath}`)
   await fs.promises.rm(path.join(projectPath, '.git'), {
     recursive: true,
+    force: true,
   })
 
   await fs.promises.copyFile(
