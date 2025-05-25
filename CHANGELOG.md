@@ -1,5 +1,11 @@
 # create-aeria-app
 
+## 0.0.59
+
+### Patch Changes
+
+- ce4379c: Fix install bug
+
 ## 0.0.58
 
 ### Patch Changes
