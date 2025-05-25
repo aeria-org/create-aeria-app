@@ -1,5 +1,11 @@
 # create-aeria-app
 
+## 0.0.60
+
+### Patch Changes
+
+- db534af: Fix Windows path separators
+
 ## 0.0.59
 
 ### Patch Changes
