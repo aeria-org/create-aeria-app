@@ -1,8 +1,8 @@
-import path from 'path'
-import { parseArgs, promisify } from 'util'
-import semver from 'semver'
-import fs from 'fs'
-import readline from 'readline'
+import { parseArgs, promisify } from 'node:util'
+import * as path from 'node:path'
+import * as fs from 'node:fs'
+import * as readline from 'node:readline'
+import * as semver from 'semver'
 import {
   type Tuple,
   error,

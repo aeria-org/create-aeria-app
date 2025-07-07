@@ -1,8 +1,8 @@
-import { spawn } from 'child_process'
+import { spawn } from 'node:child_process'
 
-export type Tuple = string | string[] extends infer Value
-  ? [Value] | [undefined, Value]
-  : never
+export type Tuple =
+  | [string | string[]]
+  | [undefined, string | string[]]
 
 export const error = (value: string | string[]): Tuple => [value]
 export const success = (value: string | string[]): Tuple => [,value]
@@ -39,14 +39,14 @@ export const $ = async (
   return stdout.join('\n').trim()
 }
 
-export enum LogLevel {
-  Info = 'info',
-  Error = 'error',
-  Warning = 'warning',
-  Debug = 'debug',
-}
+export const LogLevel = {
+  Info: 'info',
+  Error: 'error',
+  Warning: 'warning',
+  Debug: 'debug',
+} as const
 
-export const log = (level: LogLevel, value: any) => {
+export const log = (level: typeof LogLevel[keyof typeof LogLevel], value: any) => {
   console.log(
     `[${level}]`,
     Array.isArray(value)
