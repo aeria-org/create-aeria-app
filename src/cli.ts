@@ -4,7 +4,7 @@ import * as fs from 'node:fs'
 import * as readline from 'node:readline'
 import * as semver from 'semver'
 import {
-  type Tuple,
+  type ResultTuple,
   error,
   success,
   isError,
@@ -44,7 +44,7 @@ const rl = readline.createInterface({
 
 const question = promisify(rl.question).bind(rl)
 
-const allChecksPass = async (checks: Promise<Tuple>[]) => {
+const allChecksPass = async (checks: Promise<ResultTuple>[]) => {
   for( const check of checks ) {
     const result = await check
     log(isError(result)
