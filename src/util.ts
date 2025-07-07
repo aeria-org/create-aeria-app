@@ -1,13 +1,13 @@
 import { spawn } from 'node:child_process'
 
-export type Tuple =
+export type ResultTuple =
   | [string | string[]]
   | [undefined, string | string[]]
 
-export const error = (value: string | string[]): Tuple => [value]
-export const success = (value: string | string[]): Tuple => [,value]
-export const isError = (tuple: Tuple) => !!tuple[0]
-export const unwrap = (tuple: Tuple) => tuple[0] || tuple[1]
+export const error = (value: string | string[]): ResultTuple => [value]
+export const success = (value: string | string[]): ResultTuple => [, value]
+export const isError = (tuple: ResultTuple) => !!tuple[0]
+export const unwrap = (tuple: ResultTuple) => tuple[0] || tuple[1]
 
 export const $ = async (
   cmd: string | string[],
@@ -46,7 +46,7 @@ export const LogLevel = {
   Debug: 'debug',
 } as const
 
-export const log = (level: typeof LogLevel[keyof typeof LogLevel], value: any) => {
+export const log = (level: typeof LogLevel[keyof typeof LogLevel], value: unknown) => {
   console.log(
     `[${level}]`,
     Array.isArray(value)
