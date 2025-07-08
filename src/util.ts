@@ -19,6 +19,7 @@ export const $ = async (
 ) => {
   const result = spawn(cmd[0], cmd.slice(1), {
     cwd: options.cwd,
+    shell: true,
   })
 
   if( options.stdout ) {

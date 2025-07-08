@@ -88,7 +88,10 @@ const checkPackageVersion = async () => {
 }
 
 const checkCompatibility = async () => {
-  const localNodeVersion = await $(['node', '-v'])
+  const localNodeVersion = await $([
+    'node',
+    '-v',
+  ])
   const remoteNodeVersion = await $([
     'npm',
     'view',
