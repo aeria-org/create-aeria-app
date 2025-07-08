@@ -1,5 +1,11 @@
 # create-aeria-app
 
+## 0.0.62
+
+### Patch Changes
+
+- d9d0d96: Fix `spawn()` call
+
 ## 0.0.61
 
 ### Patch Changes
