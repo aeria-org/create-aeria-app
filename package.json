@@ -1,6 +1,6 @@
 {
   "name": "create-aeria-app",
-  "version": "0.0.60",
+  "version": "0.0.61",
   "description": "",
   "license": "ISC",
   "packageManager": "pnpm@9.1.0",
