@@ -1,5 +1,11 @@
 # create-aeria-app
 
+## 0.0.61
+
+### Patch Changes
+
+- acfa8e4: Platform-agnostic commands
+
 ## 0.0.60
 
 ### Patch Changes
