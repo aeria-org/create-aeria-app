@@ -10,18 +10,16 @@ export const isError = (tuple: ResultTuple) => !!tuple[0]
 export const unwrap = (tuple: ResultTuple) => tuple[0] || tuple[1]
 
 export const $ = async (
-  cmd: string | string[],
+  cmd: readonly string[],
   options: {
+    cwd?: string
     stdout?: boolean
     stderr?: boolean
   } = {},
 ) => {
-  const result = spawn('sh', [
-    '-c',
-    Array.isArray(cmd)
-      ? cmd.join(';')
-      : cmd,
-  ])
+  const result = spawn(cmd[0], cmd.slice(1), {
+    cwd: options.cwd,
+  })
 
   if( options.stdout ) {
     result.stdout.pipe(process.stdout)

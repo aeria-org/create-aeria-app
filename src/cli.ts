@@ -69,7 +69,12 @@ const checkPackageVersion = async () => {
     version: packageVersion,
   } = require('../package.json')
 
-  const remoteVersion = await $(`npm view ${packageName} version`)
+  const remoteVersion = await $([
+    'npm',
+    'view',
+    packageName,
+    'version',
+  ])
 
   if( packageVersion !== remoteVersion ) {
     return error([
@@ -83,8 +88,13 @@ const checkPackageVersion = async () => {
 }
 
 const checkCompatibility = async () => {
-  const localNodeVersion = await $('node -v')
-  const remoteNodeVersion = await $('npm view aeria engine.node')
+  const localNodeVersion = await $(['node', '-v'])
+  const remoteNodeVersion = await $([
+    'npm',
+    'view',
+    'aeria',
+    'engine.node',
+  ])
 
   if( !semver.satisfies(localNodeVersion, remoteNodeVersion) ) {
     return error('local node version is outdated')
@@ -129,7 +139,15 @@ const main = async () => {
     return
   }
 
-  await $(`git clone --depth=1 --branch=master ${TEMPLATES[template]} ${projectPath}`)
+  await $([
+    'git',
+    'clone',
+    '--depth=1',
+    '--branch=master',
+    TEMPLATES[template],
+    projectPath,
+  ])
+
   await fs.promises.rm(path.join(projectPath, '.git'), {
     recursive: true,
     force: true,
@@ -143,9 +161,11 @@ const main = async () => {
   if( !opts.bare ) {
     log(LogLevel.Info, 'installing dependencies')
     await $([
-      `cd ${projectPath.replace(/\\/g, '/')}`,
-      'npm i',
-    ])
+      'npm',
+      'install',
+    ], {
+      cwd: projectPath.replace(/\\/g, '/'),
+    })
   }
 
   log(LogLevel.Info, `your project '${projectName}' was created, make good use of it`)
